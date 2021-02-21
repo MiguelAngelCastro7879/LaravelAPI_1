@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/sign_up', 'UsersController@store');
+Route::post('/sign_up', 'UsersController@store');

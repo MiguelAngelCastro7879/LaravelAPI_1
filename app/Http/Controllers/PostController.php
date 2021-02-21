@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Users;
+use App\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-
-class UsersController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,24 +35,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario =  users::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'employment'=>$request->employment,
-            'password'=> Hash::make($request->password),
-            'date_of_birth'=>$request->date_of_birth,
-            'highest_degree_of_studies'=>$request->highest_degree_of_studies,
-        ]);
-        return $usuario;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Users  $users
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show(Post $post)
     {
         //
     }
@@ -62,10 +52,10 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Users  $users
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $users)
+    public function edit(Post $post)
     {
         //
     }
@@ -74,10 +64,10 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Users  $users
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -85,10 +75,10 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Users  $users
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users $users)
+    public function destroy(Post $post)
     {
         //
     }
