@@ -35,7 +35,15 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario =  users::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'employment'=>$request->employment,
+            'password'=>$request->password,
+            'date of birth'=>$request->born,
+            'highest degree of studies'=>$request->studies,
+        ]);
+        return $usuario;
     }
 
     /**
