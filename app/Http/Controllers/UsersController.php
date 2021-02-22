@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 
 class UsersController extends Controller
@@ -16,7 +17,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $cuenta = users::all();
+        return $cuenta;
+        
     }
 
     /**
@@ -37,15 +40,19 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario =  users::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'employment'=>$request->employment,
-            'password'=> Hash::make($request->password),
-            'date_of_birth'=>$request->date_of_birth,
-            'highest_degree_of_studies'=>$request->highest_degree_of_studies,
-        ]);
-        return $usuario;
+        //sirve para guardar a los usuarios en la DB
+        $usuario = new users;
+            $usuario->name=$request->name;
+            $usuario->email=$request->email;
+            $usuario->employment=$request->employment;
+            $usuario->password= Hash::make($request->password);
+            $usuario->date_of_birth=$request->date_of_birth;
+            $usuario->highest_degree_of_studies=$request->highest_degree_of_studies;
+        if($usuario->save())
+        {
+            return response()->json($usuario,201);
+        }
+        return response()->json(null,204);
     }
 
     /**
@@ -54,9 +61,10 @@ class UsersController extends Controller
      * @param  \App\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show($users)
     {
-        //
+        //Sirve para mostrar usuarios especificos
+        
     }
 
     /**

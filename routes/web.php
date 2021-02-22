@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/sign_up', 'UsersController@store');
+Route::get('/people', 'UsersController@index');
+Route::get('/{id}/profile', 'UsersController@show');
