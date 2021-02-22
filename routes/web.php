@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::post('/sign_up', 'UsersController@store');
 Route::get('/people', 'UsersController@index');
 Route::get('/{id}/profile', 'UsersController@show');
+/*
+*
+*
+*
+{
+	"name": "Miguel Angel",
+	"email":"maiki112@gmail.com",
+	"password": "123456789",
+	"employment": "tecnico",
+	"date_of_birth": "2020-02-19",
+	"highest_degree_of_studies":"college"
+}
+*/
+Route::post('/make_post', 'PostController@store');
+Route::get('/index', 'PostController@index');

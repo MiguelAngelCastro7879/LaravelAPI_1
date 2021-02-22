@@ -17,8 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $cuenta = users::all();
-        return $cuenta;
+        return users::all();
         
     }
 

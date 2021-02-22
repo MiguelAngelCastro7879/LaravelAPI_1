@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        //se muestran todos los post
+        return post::all();
     }
 
     /**
@@ -35,7 +36,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //se cran publicaciones
+        return post::create(request()->all());
     }
 
     /**
