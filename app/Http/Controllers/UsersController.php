@@ -17,8 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return users::all();
-        
+        return users::all();   
     }
 
     /**
@@ -62,7 +61,11 @@ class UsersController extends Controller
      */
     public function show($users)
     {
-        //Sirve para mostrar usuarios especificos
+        //sirve para ver el perfil de un usuario especifico
+        return DB::table('users')
+                        ->select('name','email','employment','highest_degree_of_studies','date_of_birth')
+                        ->where('id',$users)
+                        ->get();
         
     }
 

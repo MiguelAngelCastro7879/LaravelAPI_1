@@ -49,12 +49,12 @@ class PostController extends Controller
      */
     public function show($post)
     {
+        //Sirve para ver publicaciones especificas
         return DB::table('posts')
                         ->join('users', 'users.id', '=', 'posts.user_id')
                         ->select('posts.title', 'posts.description', 'posts.created_at', 'users.name')
                         ->where('posts.id',$post)
                         ->get();
-                        //return $post;
     }
 
     /**
