@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -46,9 +47,14 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($post)
     {
-        //
+        return DB::table('posts')
+                        ->join('users', 'users.id', '=', 'posts.user_id')
+                        ->select('posts.title', 'posts.description', 'posts.created_at', 'users.name')
+                        ->where('posts.id',$post)
+                        ->get();
+                        //return $post;
     }
 
     /**

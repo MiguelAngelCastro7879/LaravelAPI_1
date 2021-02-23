@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/sign_up', 'UsersController@store');
 Route::get('/people', 'UsersController@index');
-Route::get('/{id}/profile', 'UsersController@show');
+Route::get('/profile/{user}', 'UsersController@show');
 /*
 *
 *
@@ -31,3 +31,13 @@ Route::get('/{id}/profile', 'UsersController@show');
 */
 Route::post('/make_post', 'PostController@store');
 Route::get('/index', 'PostController@index');
+Route::get('/post/{post}', 'PostController@show');
+/*
+*
+*
+{
+	"title":"hola mundo 2",
+	"description":"Esta es la segunda publicacion",
+	"user_id": "2"
+}
+*/
